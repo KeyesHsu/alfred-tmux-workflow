@@ -7,16 +7,13 @@
   </a>
 </p>
 
-Search tmux sessions/windows and open in iTerm
-
+Search tmux sessions/windows and open in iTerm2.
 
 ## Setup
----
 This workflow requires python3, and [libtmux](https://github.com/tmux-python/libtmux).  
 You can install [libtmux](https://github.com/tmux-python/libtmux) via pip (`pip install libtmux`)
 
 ## Workflow Variables
----
 - `pythonw`: Python with libtmux installed, for example `/usr/local/bin/python3`
 
 ## Commands
@@ -32,6 +29,7 @@ Search windows only.
 ```sh
 tmux w
 ```
+Use `Enter` to open entry in iTerm2
 
 ## Author
 
