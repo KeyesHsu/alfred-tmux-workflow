@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.keyes.alfred.tmux</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>2D954F58-3822-400B-9B30-02601A4EB855</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9BEEE83B-138B-4D11-9D8D-F5ECA7DEC577</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>89B6A78A-FEBC-4AAF-9B11-0A4C2798490D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D954F58-3822-400B-9B30-02601A4EB855</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9BEEE83B-138B-4D11-9D8D-F5ECA7DEC577</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E8D8F4AC-CBC9-47BD-9802-6BD08D60D0C1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Keyes Hsu</string>
+	<key>description</key>
+	<string>Tmux workflow for alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Tmux</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tmux</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading results…</string>
+				<key>script</key>
+				<string>$pythonw tmux_list.py $1</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search or type a command</string>
+				<key>title</key>
+				<string>tmux...</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2D954F58-3822-400B-9B30-02601A4EB855</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>89B6A78A-FEBC-4AAF-9B11-0A4C2798490D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>$pythonw tmux_open.py $1 $2 $3</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9BEEE83B-138B-4D11-9D8D-F5ECA7DEC577</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on is_running()
+	application "iTerm" is running
+end is_running
+
+
+on has_windows()
+	if not is_running() then return false
+	if windows of application "iTerm" is {} then return false
+	true
+end has_windows
+
+
+on run argv
+	if not has_windows()
+		tell application "iTerm" to create window with default profile
+	end if
+
+	-- Make sure a window exists before we continue, or the write may fail
+	repeat until has_windows()
+		delay 0.01
+	end repeat
+
+	tell application "iTerm" to activate
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E8D8F4AC-CBC9-47BD-9802-6BD08D60D0C1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>2D954F58-3822-400B-9B30-02601A4EB855</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>25</integer>
+		</dict>
+		<key>89B6A78A-FEBC-4AAF-9B11-0A4C2798490D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>80</integer>
+			<key>ypos</key>
+			<integer>25</integer>
+		</dict>
+		<key>9BEEE83B-138B-4D11-9D8D-F5ECA7DEC577</key>
+		<dict>
+			<key>xpos</key>
+			<integer>560</integer>
+			<key>ypos</key>
+			<integer>25</integer>
+		</dict>
+		<key>E8D8F4AC-CBC9-47BD-9802-6BD08D60D0C1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>760</integer>
+			<key>ypos</key>
+			<integer>25</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>pythonw</key>
+		<string>/usr/local/bin/python3</string>
+	</dict>
+	<key>version</key>
+	<string></string>
+	<key>webaddress</key>
+	<string>https://github.com/KeyesHsu/alfred-tmux-workflow</string>
+</dict>
+</plist>
