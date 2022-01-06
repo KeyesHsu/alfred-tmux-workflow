@@ -87,11 +87,18 @@ if __name__ == "__main__":
         list_window_result = tmux_list.list_windows()
         tmux_list.print(list_session_result, list_window_result)
     else:
+        filter_name = ""
+        if params[1:]:
+            filter_name = params[1]
+
         if params[0] == "s":
-            list_session_result = tmux_list.list_sessions()
+            list_session_result = tmux_list.list_sessions(filter_name)
             tmux_list.print(list_session_result)
         elif params[0] == "w":
-            list_window_result = tmux_list.list_windows()
+            filter_name = ""
+            if params[1:]:
+                filter_name = params[1]
+            list_window_result = tmux_list.list_windows(filter_name)
             tmux_list.print(list_window_result)
         else:
             filter_name = params[0]
