@@ -8,6 +8,7 @@
 </p>
 
 Search tmux sessions/windows and open in iTerm2.
+![img](tmux-demo.gif)
 
 ## Setup
 This workflow requires python3, and [libtmux](https://github.com/tmux-python/libtmux).  
