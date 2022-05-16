@@ -19,7 +19,7 @@ class TmuxOpen:
     def __init__(self):
         self.server = libtmux.Server()
 
-    def open(self, tmux_type: TmuxType, tmux_id: str, tmux_name: str):
+    def open(self, tmux_type: str, tmux_id: str, tmux_name: str):
         if tmux_type == TmuxType.SESSION:
             session  = self.server.get_by_id(tmux_id)
             if not session:

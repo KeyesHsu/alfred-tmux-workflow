@@ -83,6 +83,7 @@ if __name__ == "__main__":
 
     params = sys.argv[1:]
     if not params:
+        # No filter, list all sessions and windows
         list_session_result = tmux_list.list_sessions()
         list_window_result = tmux_list.list_windows()
         tmux_list.print(list_session_result, list_window_result)
@@ -92,12 +93,11 @@ if __name__ == "__main__":
             filter_name = params[1]
 
         if params[0] == "s":
+            # List sessions with filter name
             list_session_result = tmux_list.list_sessions(filter_name)
             tmux_list.print(list_session_result)
         elif params[0] == "w":
-            filter_name = ""
-            if params[1:]:
-                filter_name = params[1]
+            # List windows with filter name
             list_window_result = tmux_list.list_windows(filter_name)
             tmux_list.print(list_window_result)
         else:
