@@ -10,6 +10,9 @@
 Search tmux sessions/windows and open in iTerm2.
 ![img](tmux-demo.gif)
 
+##### Resources:
+* [Changelog](CHANGELOG.md)
+
 ## Setup
 This workflow requires python3, and [libtmux](https://github.com/tmux-python/libtmux).  
 You can install [libtmux](https://github.com/tmux-python/libtmux) via pip (`pip install libtmux`)
