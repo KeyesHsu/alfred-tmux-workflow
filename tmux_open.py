@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from __future__ import annotations
-
-import re
 import sys
+
 import libtmux
-
-from typing import Tuple
-
 
 
 class TmuxType:
@@ -21,7 +16,7 @@ class TmuxOpen:
 
     def open(self, tmux_type: str, tmux_id: str, tmux_name: str):
         if tmux_type == TmuxType.SESSION:
-            session  = self.server.get_by_id(tmux_id)
+            session = self.server.get_by_id(tmux_id)
             if not session:
                 return
 
@@ -29,7 +24,7 @@ class TmuxOpen:
 
         elif tmux_type == TmuxType.WINDOW:
             session_id, window_id = tmux_id.split("-")
-            session  = self.server.get_by_id(session_id)
+            session = self.server.get_by_id(session_id)
             window = session.get_by_id(window_id)
 
             window.select_window()

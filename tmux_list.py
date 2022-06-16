@@ -62,7 +62,11 @@ class TmuxList:
                     {
                         "title": window_name,
                         "subtitle": f"Window {window_index}:{window_name} in session {session_name}",
-                        "arg": ["window", f"{session_id}-{window_id}", window_name],
+                        "arg": [
+                            "window",
+                            f"{session_id}-{window_id}",
+                            window_name,
+                        ],
                         "autocomplete": "",
                         "icon": {"path": "icons/window.ico"},
                     }
